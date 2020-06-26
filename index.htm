@@ -8,18 +8,141 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
+    <style>
+    	/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: .05rem solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+  background-color: #333;
+}
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff;
+  text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+
+.cover-container {
+  max-width: 42em;
+}
+
+
+/*
+ * Header
+ */
+.masthead {
+  margin-bottom: 2rem;
+}
+
+.masthead-brand {
+  margin-bottom: 0;
+}
+
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: 700;
+  color: rgba(255, 255, 255, .5);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+  border-bottom-color: rgba(255, 255, 255, .25);
+}
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 48em) {
+  .masthead-brand {
+    float: left;
+  }
+  .nav-masthead {
+    float: right;
+  }
+}
+
+
+/*
+ * Cover
+ */
+.cover {
+  padding: 0 1.5rem;
+}
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: 700;
+}
+
+
+/*
+ * Footer
+ */
+.mastfoot {
+  color: rgba(255, 255, 255, .5);
+}
+
+.produceImg {
+	margin-bottom: 100px;
+	height: 25vh;
+    min-height: 100px;
+}
+
+    </style>
+
     <title>Live Produce!</title>
   </head>
-  <body>
-  	<div style="text-align: center;">
-	    <h1>Live Produce!</h1>
-	    <br><br>
+  <body class="text-center">
+  	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  		<header class="masthead mb-auto"></header>
+  		<main role="main" class="inner cover">
+		    <div>
+		    	<div style="height: 150px">
+		    		<h1 class="produce cover-heading"></h1>
+		    	</div>
 
-	    <div>
-	    	<div class="produce"></div>
-	    	<br><br><br>
-	    	<button class="reset">Again!</button>
-	    </div>
+		    	<img class="produceImg" src="">
+		    	
+		    	<p class="lead">
+		    		<a href="#" class="reset btn btn-lg btn-secondary">Next</a>
+		    	</p>
+		    </div>
+		</main>
+		<footer class="mastfoot mt-auto"></footer>
 	</div>
 
     <script>
@@ -27,33 +150,56 @@
 
     	function generateProduce() {
     		var produce = [
-    			["an","orange"],
-    			["a","cantelope"],
-    			["an","apple"],
-    			["a","cherry"],
-    			["a","strawberry"],
-    			["a","melon"],
-    			["a","grape"],
-    			["an","avocado"],
-    			["","celery"],
-    			["","broccoli"],
-    			["","lettuce"],
-    			["","tomato"],
-    			["a","carrot"],
-    			["a","mushroom"],
-    			["a","banana"],
-    			["a","mango"],
-    			["","ginger"],
-    			["","garlic"],
-    			["","asparagus"],
-    			["a","bell pepper"],
-    			["a","pineapple"],
+    			["an","orange","https://geraniumodorant.com/wp-content/uploads/2016/04/scents-orange.png"],
+    			["a","cantelope","https://cdn.shopify.com/s/files/1/1957/1831/products/cantelope_grande.png?v=1501721819"],
+    			["an","apple","https://usapple.org/wp-content/uploads/2019/10/apple-golden-delicious.png"],
+    			["a","cherry","https://i.pinimg.com/originals/fc/5e/b7/fc5eb7dc23cd8018e17a581c88b9c308.png"],
+    			["a","strawberry","https://berryworld.imgix.net/consumerAssets/Strawberry-transparent.png?auto=compress%2Cformat&fit=clip&w=800&w=800&auto=format&auto=compress"],
+    			["a","melon","https://pngimg.com/uploads/melon/melon_PNG14377.png"],
+    			["a","grape","https://smhttp-ssl-83739.nexcesscdn.net/pub/media/product/1172579/purple-grape.png"],
+    			["an","avocado","https://chulas-cantina.com/wp-content/uploads/2017/02/avocado.png"],
+    			["","celery","https://www.pngmart.com/files/5/Celery-Transparent-PNG.png"],
+    			["","broccoli","https://lh3.googleusercontent.com/proxy/XSQjr91zuoBvA_xTOBoNBI01jl-Qx1e7A25DyheUVsBDGb4fK5wFGR9JTFXa5NBAMosqU6CZ0a-4Szt7chiucOVzQiLCnbvCLHsIXnNzU0wOWTLvJvoVzYEbc3Up0vIcnpiWmF_W_3fw6MN3zRb_5LMuBd0ZFVMzYaIzIHQajg"],
+    			["","lettuce","https://www.qualityassurancemag.com/fileuploads/image/2018/11/26/romaine-lettuce-pixabay2468495_1280.png?w=736&h=414&mode=crop"],
+    			["","tomato","https://www.boeschbodenspies.com/wp-content/uploads/2017/08/tomato.png"],
+    			["a","carrot","https://i.pinimg.com/originals/b5/90/23/b590233e35d23289831b865a68114726.png"],
+    			["a","mushroom","https://www.mushrooms.ca/wp-content/uploads/2016/01/Crimini-300x290.png"],
+    			["a","banana","https://www.chiquita.com/wp-content/uploads/2019/12/Chiquita_Bananas_Class_Extra.png"],
+    			["a","mango","https://www.boeschbodenspies.com/wp-content/uploads/2017/08/mango.png"],
+    			["","ginger","https://junglejims.com/wp-content/uploads/rawginger.png"],
+    			["","garlic","https://www.kroger.com/product/images/xlarge/front/0000000004608"],
+    			["","asparagus","https://i.pinimg.com/originals/22/80/2e/22802ef47f918b94b51a125d55f898e4.png"],
+    			["a","bell pepper","https://cdn11.bigcommerce.com/s-q1qpuo8ch5/images/stencil/2048x2048/products/895/520/redpeppers__60009.1555673735.png?c=2"],
+    			["a","pineapple","https://glutensugardairyfree.com/wp-content/uploads/gsd-pineapple-whole-269x400.png"],
+    			["","cauliflower","https://s3.amazonaws.com/greengiant-us/wp-content/uploads/2018/09/11214819/Comp-186828790.png"],
+    			["","cabbage","https://lh3.googleusercontent.com/proxy/napf0rqlYa_0xwMdEQdlYbYwk2JZ8zRY3dmTu4A4SZYk4xlJLpuX639UBbBvoKVy1zTtJzSIeTK_vnHDOccdgYK6ORbA7FjEDwCWNTw-Nsm_GyRxUdikCpv-Gsu9UjH4007xzKQ1Rgln7YzpLCa3QdRI"],
+    			["a","cucumber","https://lh3.googleusercontent.com/proxy/VbxAnWHhr8pwbdlcghRKtBm0LkQvcpUp4VXnwgQIcvfdLopBy7kUDe5cOTDoJ4fUyXcS1t9N2aN5K8CkxNgBtbtkJmBmoFxXBVwGy0cE02YpXyG3VkGNON9s-R4X1wsLIu-deTrYZ3NenDX9PMye59xS"],
+    			["a","brussel sprout","https://lh3.googleusercontent.com/proxy/Glf_g1Oi7OI0eVUeEqxjpbP9Jt1hS_1uaqEGISe2oeLE9Db6VJxwfOagaVelueTmKW5TPzNHL19voGffLhgRVZMdv83eeny6co8wMyAYqbFxNp1zrK7-rzW2gJSimqD0Xg1CVB7mhTzMEZJGyW0ZP3WcErOz5zU"],
+    			["an","artichoke","https://lh3.googleusercontent.com/proxy/Qg63E-sO2W8hgw_fKD1JDm4jEUnEtiqtav_YIkdSfreZ6r_F4cbXqcVUlvGnSNH8ayPuc4BETb1U4wkwGIUtyoExII2fZ2RTPjLX__PQyqzT6qNYI0Ska7o-f3aaQ7xReE6WEusWB4o"],
+    			["a","beet","https://s3.amazonaws.com/greengiant-us/wp-content/uploads/2018/09/11214816/Comp-585175518.png"],
+    			["","kale","https://nutritionvixen.com/wp-content/uploads/2017/03/kale.png"],
+    			["","corn","https://lh3.googleusercontent.com/proxy/xJ7W5sdVN5rYwsOFfcfgxnmfcnjVmx23c0kKcwTYWyNMrpCY_FwdvesZZqvU7xALpWBSj1VIOGTy0x2qCrhOeRkDDTx9dbGrn87qmi8gLUz4ZHwGkmqJJr5HtyR9Zr70"],
+    			["a","pea","https://www.cascadianfarm.com/wp-content/uploads/2018/12/SweetPeas_Main_0175-1.png"],
+    			["a","blueberry","https://lh3.googleusercontent.com/proxy/dLNFeXO4h4KbSOT0lxhjDVYwk6BEiUvugmsGVE7xDms2WHuIrd9MjTEN7AkSl6r45nkpaAHHXvBk037MQpXQZf335RxeZ8NlgonA2e6L2a5ejdO3uj-MhYxeHWoLEgDBI-znVTs"],
+    			["a","raspberry","https://www.cascadianfarm.com/wp-content/uploads/2018/12/Raspberries_Main_0234.png"],
+    			["a","blackberry","https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.pngall.com%2Fblackberry-fruit-png&psig=AOvVaw3JBkh2QhycEG8mHA81Uonj&ust=1591070644249000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIiF1Zbe3-kCFQAAAAAdAAAAABAD"],
+    			["an","onion","https://qph.fs.quoracdn.net/main-qimg-0375f8e40449a416b2b0838abfe81b95"],
+    			["an","eggplant","https://lh3.googleusercontent.com/proxy/qGQ1c0_77E2gfKQVRviiwuEN-OAdM3gPqQE5yPofqJYuA0j4VD7O9VpHIYoTjLXomwiY5Xy90lMsEKA1WcNztw8yyNg76PJWfMDatekh-lT9m6DOm6i-9xvn_EfoqoUuJLDwsQgmuJSt_3AERQ"],
+    			["a","pumpkin","https://minnesotagrown.com/wp-content/uploads/2019/03/pumpkin-cut-out.png"],
+    			["a","green bean","https://static.wixstatic.com/media/314620_9a9339cf06d04e7695df1b049beceba1~mv2.png/v1/fill/w_1080,h_1080,al_c,q_90/314620_9a9339cf06d04e7695df1b049beceba1~mv2.webp"],
+    			["","spinach","https://pngimg.com/uploads/spinach/spinach_PNG58.png"],
+    			["a","lemon","https://lemonconcentrate.com/wp-content/uploads/2017/08/limon-1-1-e1519209458428.png"],
+    			["a","potato","https://i.imgur.com/G3Jq9xM.jpg"],
+    			["","green onion","https://cdn.shopify.com/s/files/1/0135/9839/2378/products/Green_Onions_59958fc9-88a3-4b8a-99fd-037da5a81d18_1024x.png?v=1569560651"],
+    			["a","sweet potato","https://lh3.googleusercontent.com/proxy/c7FyYlG6Aa_U-SGt-71XwoP8GdV1QIJ6QDm5TOWVEFhThg4vDxJtxc0jY0V7Rj8l5SY_gwHUxHB9J7eCylmoaMAxGNWjxOOx7aOWd_OzGg7gTogwS0RzxnOgNV1mgA6F-kkwoALhkWepbfBwbNrjWn3jIwXSHA"],
+    			["a","zucchini","https://webstockreview.net/images/zucchini-clipart-zuchini-9.png"],
+    			["an","olive","https://www.haveanoliveday.eu/images/varieties/p3.png"],
     		];
 
     		var actions = [
     			"The sound 0 1 would make",
-    			"Dialogue 0 1 would say",
-    			"A job 0 1 would have",
+    			"Where 0 1 would take vacation",
+    			"The job 0 1 would have",
     		];
 
     		var chosenProduce = randomSelection(produce);
@@ -62,13 +208,15 @@
     		var output = chosenAction.replace("0", chosenProduce[0]).replace("1", chosenProduce[1]);
 
     		document.querySelector('.produce').innerHTML = output;
+    		document.querySelector('.produceImg').src = chosenProduce[2];
     	}
 
     	function randomSelection(arr) {
     		return arr[parseInt(Math.random() * arr.length)];
     	}
 
-    	function reset() {
+    	function reset(e) {
+    		e.preventDefault();
     		generateProduce();
     	}
 
